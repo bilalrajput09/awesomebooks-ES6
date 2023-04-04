@@ -18,14 +18,16 @@ export default class Books {
     booksContainer.innerHTML = '';
     let html = '';
     bookList.forEach((book, i) => {
-      html += `<div id = "${i}" class ="book_main_container"><p>
-        ${book.title}
+      html += `<div id = "${i}" class ="book_main_container allbooks">
+      <div class ="paragraph"><p>
+        ${book.title} By
         </p>
         <p>
         ${book.author}
         </p>
-        <button id="btn_remove">Remove</button>
-        <br><br></div>`;
+        </div>
+        <button id="btn_remove" class = "remove">Remove</button>
+</div>`;
       booksContainer.innerHTML = html;
     });
   }

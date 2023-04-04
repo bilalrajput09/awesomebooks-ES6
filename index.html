@@ -1,84 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
     <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
+  </head>
 
-        h1 {
-            padding: 0.5em;
-        }
-
-        .book_list {
-            margin: 1em;
-            width: 45%;
-            padding: 3px;
-
-        }
-
-        .book_main_container {
-            border-bottom: 2px solid black;
-        }
-
-        .main_form {
-            padding: 1em;
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            gap: 20px;
-        }
-
-        .main_form input {
-            padding: 0.2em;
-        }
-
-        .btn_add {
-            width: 50px;
-        }
-    </style>
-</head>
-
-<body>
+  <body>
     <header>
-        <nav ">
-                <div class=" logo">
-            <a href="" class="">Awesome Books</a>
-            </div>
-            <ul class="nav_list">
-                <li class="nav_items">
-                    <a href="#" class="list_btn">List</a>
-                </li>
-                <li class="nav_items">
-                    <a href="#" class="add_new_btn">Add new</a>
-                </li>
-                <li class="nav_items">
-                    <a href="#" class="contact_btn">Contact</a>
-                </li>
-            </ul>
-        </nav>
+      <nav>
+        <div class="logo">
+          <a href="" class="">Awesome Books</a>
+        </div>
+        <ul class="nav_list">
+          <li class="nav_items">
+            <a href="#" class="list_btn">List</a>
+          </li>
+          <li class="nav_items">
+            <a href="#" class="add_new_btn">Add new</a>
+          </li>
+          <li class="nav_items">
+            <a href="#" class="contact_btn">Contact</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
+    <div class="main_container">
+      <div class="list_container hidden">
+        <h1 class="heading">All awesome books</h1>
+        <div class="book_list"></div>
+      </div>
 
-    <div class="book_list">
+      <div class="contact hidden">
+        <h2 class="contact-title">Contact Information</h2>
+        <p class="contact_para">
+          Do you have any questions or you just want to say 'Hello'? <br />
+          You can reach out to us!
+        </p>
+        <ul class="contact_item_list">
+          <li class="contact_item">Our email: mail@mail.com</li>
+          <li class="contact_item">Our phone number: 004368663442</li>
+          <li class="contact_item">
+            Our address: Street Name, 22, 84603, City, Country
+          </li>
+        </ul>
+      </div>
 
+      <form class="main_form">
+        <h2 class="heading1">Add new Books</h2>
+        <input type="text" id="title" placeholder="title" />
+        <input type="text" id="author" placeholder="author" />
+        <div class="btn">
+          <button id="btn_add">Add</button>
+        </div>
+      </form>
     </div>
-
-    <form class="main_form">
-        <input type="text" id="title">
-        <input type="text" id="author">
-        <button id="btn_add">Add</button>
-    </form>
+    <footer>Copyright@2023...</footer>
     <script type="module" src="classes.js"></script>
-</body>
-
+  </body>
 </html>
