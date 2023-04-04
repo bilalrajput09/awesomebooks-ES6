@@ -1,26 +1,24 @@
-import { bookList } from "./checkLocalStorage.js";
-export const booksContainer = document.querySelector(".book_list");
+import { bookList } from './checkLocalStorage.js';
+
+export const booksContainer = document.querySelector('.book_list');
 
 export default class Books {
+  constructor() {
+    this.id;
+    this.title;
+    this.author;
+  }
 
-    constructor() {
-        this.id;
-        this.title;
-        this.author;
-    }
+  addBook() {
+    this.title = title.value;
+    this.author = author.value;
+  }
 
-    addBook() {
-        this.title = title.value;
-        this.author = author.value;
-    }
-
-
-
-    displayBooks() {
-        booksContainer.innerHTML = "";
-        let html = "";
-        bookList.forEach((book, i) => {
-            html += `<div id = "${i}" class ="book_main_container"><p>
+  displayBooks() {
+    booksContainer.innerHTML = '';
+    let html = '';
+    bookList.forEach((book, i) => {
+      html += `<div id = "${i}" class ="book_main_container"><p>
         ${book.title}
         </p>
         <p>
@@ -28,14 +26,12 @@ export default class Books {
         </p>
         <button id="btn_remove">Remove</button>
         <br><br></div>`;
-            booksContainer.innerHTML = html;
-        })
+      booksContainer.innerHTML = html;
+    });
+  }
 
-    }
-
-    removeBooks() {
-        const bookIndex = bookList.findIndex((_, i) => i === id);
-        bookList.splice(bookIndex, 1);
-    }
-
+  removeBooks() {
+    const bookIndex = bookList.findIndex((_, i) => i === id);
+    bookList.splice(bookIndex, 1);
+  }
 }
