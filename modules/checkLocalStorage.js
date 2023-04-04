@@ -1,4 +1,4 @@
-export let bookList = [];
+export let bookList = []; // eslint-disable-line
 
 const checkLocalStorage = () => {
   if (localStorage.getItem('Books') === null) {
