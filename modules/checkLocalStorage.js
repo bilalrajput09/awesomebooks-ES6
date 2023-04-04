@@ -1,3 +1,4 @@
+/* eslint-disable */
 export let bookList = [];
 
 export default function checkLocalStorage() {

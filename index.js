@@ -1,63 +1,53 @@
+import checkLocalStorage, { bookList } from './modules/checkLocalStorage.js';
+import { setLocalStorage } from './modules/setLocalStorage.js';
+import Books, { booksContainer } from './modules/bookClass.js';
+import { DateTime } from './modules/luxon.js';
+
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const btnAdd = document.querySelector('#btn_add');
-const booksContainer = document.querySelector('.book_list');
-let bookList = [];
+const mainForm = document.querySelector('.main_form');
+const addNewBtn = document.querySelector('.add_new_btn');
+const contactBtn = document.querySelector('.contact_btn');
+const contactPage = document.querySelector('.contact');
+const listBtn = document.querySelector('.list_btn');
+const listContainer = document.querySelector('.list_container');
 
-const checkLocalStorage = function () {
-  if (localStorage.getItem('Books') === null) {
-    bookList = [];
-  } else {
-    bookList = JSON.parse(localStorage.getItem('Books'));
-    displayBooks();
-  }
-};
-
-const setLocalStorage = function (array) {
-  localStorage.setItem('Books', JSON.stringify(array));
-};
-
-const addBook = function () {
-  if (title.value === '' || author.value === '') return;
-  const bookObject = {
-    title: title.value,
-    author: author.value,
-  };
-  bookList.push(bookObject);
-  console.log(bookList);
-  setLocalStorage(bookList);
-  displayBooks();
-};
-
-const displayBooks = function () {
-  booksContainer.innerHTML = '';
-  let html = '';
-  bookList.forEach((book, i) => {
-    html += `<div id = "${i}" class ="book_main_container"><p>
-        ${book.title}
-        </p>
-        <p>
-        ${book.author}
-        </p>
-        <button id="btn_remove" onclick = "removeBook(${i})">Remove</button>
-        <br><br></div>`;
-    booksContainer.innerHTML = html;
-  });
-};
-
-btnAdd.addEventListener('click', (e) => {
-  e.preventDefault();
-  addBook();
+listBtn.addEventListener('click', () => {
+  mainForm.style.display = 'none';
+  listContainer.classList.remove('hidden');
+  contactPage.classList.add('hidden');
+});
+addNewBtn.addEventListener('click', () => {
+  mainForm.style.display = 'flex';
+  listContainer.classList.add('hidden');
+  contactPage.classList.add('hidden');
 });
 
-// Remove book,
-const removeBook = function (id) {
-  const bookIndex = bookList.findIndex((_, i) => i === id);
-  console.log(bookIndex);
-  console.log(id);
-  bookList.splice(bookIndex, 1);
-  console.log(bookList);
-  setLocalStorage(bookList);
-  displayBooks();
-};
+contactBtn.addEventListener('click', () => {
+  mainForm.style.display = 'none';
+  listContainer.classList.add('hidden');
+  contactPage.classList.remove('hidden');
+});
+
 checkLocalStorage();
+const bookObj = new Books();
+btnAdd.addEventListener('click', (e) => {
+  e.preventDefault();
+  bookObj.addBook();
+  bookList.push(bookObj);
+  bookObj.displayBooks();
+  setLocalStorage(bookList);
+  title.value = '';
+  author.value = '';
+});
+
+booksContainer.addEventListener('click', (e) => {
+  const bookIndex = e.target.closest('.book_main_container').id;
+  bookList.splice(bookIndex, 1);
+  localStorage.setItem('Books', JSON.stringify(bookList));
+  bookObj.displayBooks();
+});
+bookObj.displayBooks();
+
+document.querySelector('#currentDate').innerHTML = DateTime.now().toFormat('MM/dd/yyyy, hh:mm');

@@ -142,6 +142,7 @@ input::placeholder {
   background-color: white;
   box-shadow: 2px 3px 0 black;
 }
+
 .btn {
   display: flex;
   justify-content: flex-end;
@@ -202,6 +203,7 @@ footer {
 .hidden {
   display: none;
 }
+
 #currentDate {
   display: flex;
   justify-content: end;
