@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        h1 {
+            padding: 0.5em;
+        }
+
+        .book_list {
+            margin: 1em;
+            width: 45%;
+            padding: 3px;
+
+        }
+
+        .book_main_container {
+            border-bottom: 2px solid black;
+        }
+
+        .main_form {
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 20px;
+        }
+
+        .main_form input {
+            padding: 0.2em;
+        }
+
+        .btn_add {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav ">
+                <div class=" logo">
+            <a href="" class="">Awesome Books</a>
+            </div>
+            <ul class="nav_list">
+                <li class="nav_items">
+                    <a href="#" class="list_btn">List</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#" class="add_new_btn">Add new</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#" class="contact_btn">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="book_list">
+
+    </div>
+
+    <form class="main_form">
+        <input type="text" id="title">
+        <input type="text" id="author">
+        <button id="btn_add">Add</button>
+    </form>
+    <script type="module" src="classes.js"></script>
+</body>
+
+</html>
