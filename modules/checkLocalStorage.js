@@ -1,10 +1,11 @@
-/* eslint-disable */
 export let bookList = [];
 
-export default function checkLocalStorage() {
+const checkLocalStorage = () => {
   if (localStorage.getItem('Books') === null) {
     bookList = [];
   } else {
     bookList = JSON.parse(localStorage.getItem('Books'));
   }
-}
+};
+
+export default checkLocalStorage;

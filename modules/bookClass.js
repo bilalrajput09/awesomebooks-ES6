@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { bookList } from './checkLocalStorage.js';
 
 export const booksContainer = document.querySelector('.book_list');
@@ -18,7 +17,7 @@ export default class Books {
     this.author = author.value;
   }
 
-  displayBooks() {
+  displayBooks = () => {
     booksContainer.innerHTML = '';
     let html = '';
     bookList.forEach((book, i) => {
@@ -36,8 +35,7 @@ export default class Books {
     });
   }
 
-  removeBooks() {
-    this;
+  removeBooks = () => {
     const bookIndex = bookList.findIndex((_, i) => i === id);
     bookList.splice(bookIndex, 1);
   }

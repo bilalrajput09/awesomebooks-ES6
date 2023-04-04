@@ -1,5 +1,5 @@
 import checkLocalStorage, { bookList } from './modules/checkLocalStorage.js';
-import { setLocalStorage } from './modules/setLocalStorage.js';
+import setLocalStorage from './modules/setLocalStorage.js';
 import Books, { booksContainer } from './modules/bookClass.js';
 import { DateTime } from './modules/luxon.js';
 

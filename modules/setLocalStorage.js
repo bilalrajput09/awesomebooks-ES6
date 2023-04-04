@@ -1,4 +1,5 @@
-/* eslint-disable */
-export const setLocalStorage = (array) => {
+const setLocalStorage = (array) => {
   localStorage.setItem('Books', JSON.stringify(array));
 };
+
+export default setLocalStorage;
