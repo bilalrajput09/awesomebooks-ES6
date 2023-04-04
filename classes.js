@@ -1,6 +1,7 @@
 import checkLocalStorage, { bookList } from './modules/checkLocalStorage.js';
 import { setLocalStorage } from './modules/setLocalStorage.js';
 import Books, { booksContainer } from './modules/bookClass.js';
+import { DateTime } from './modules/luxon.js';
 
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
@@ -37,6 +38,8 @@ btnAdd.addEventListener('click', (e) => {
   bookList.push(bookObj);
   bookObj.displayBooks();
   setLocalStorage(bookList);
+  title.value = '';
+  author.value = '';
 });
 
 booksContainer.addEventListener('click', (e) => {
@@ -46,3 +49,6 @@ booksContainer.addEventListener('click', (e) => {
   bookObj.displayBooks();
 });
 bookObj.displayBooks();
+
+document.querySelector('#currentDate').innerHTML =
+  DateTime.now().toFormat('MM/dd/yyyy, hh:mm');

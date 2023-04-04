@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
@@ -201,4 +201,10 @@ footer {
 
 .hidden {
   display: none;
+}
+#currentDate {
+  display: flex;
+  justify-content: end;
+  width: 95%;
+  font-size: 25px;
 }
